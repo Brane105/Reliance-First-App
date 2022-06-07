@@ -1,0 +1,35 @@
+<!-- Toolbar -->
+<mat-toolbar color="primary" class="app-header">
+    <div><a href="" target="_blank" class="positronx">My First Ril APP</a></div>
+    <span class="nav-tool-items">
+      <a mat-button routerLink="login" routerLinkActive="login">Log in</a>
+      <a mat-button mat-raised-button routerLink="/register" routerLinkActive="active">Register</a>
+    </span>
+</mat-toolbar>
+<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
+  <mat-card class="box">
+    <mat-card-header>
+      <mat-card-title>Log in</mat-card-title>
+    </mat-card-header>
+    <form class="example-form" [formGroup] = "loginForm" (ngSubmit) = "handleLogin()">
+      <mat-card-content>
+        <mat-form-field class="example-full-width">
+          <input matInput  type="text" formControlName = "username" placeholder="Username" required>
+          <mat-error>
+            Please enter a valid username
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <input matInput type="password" formControlName = "password" name="pass" placeholder="Password" [type]="showPassword ? 'text' : 'password'"  required>
+          <mat-icon matSuffix (click)="togglePasswordVisibility()">
+            {{showPassword?'visibility_off':'visibility'}}
+        </mat-icon>
+        <mat-error>
+          Please enter a valid Password
+        </mat-error>
+        </mat-form-field>
+      </mat-card-content>
+      <button mat-stroked-button color="accent" class="btn-block" type="submit" value="Login">Log in</button>
+    </form>
+  </mat-card>
+</div>                             

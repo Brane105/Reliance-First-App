@@ -1,0 +1,38 @@
+<mat-toolbar color="primary" class="app-header">
+    <div><a routerLink="./" class="title">My First RIL App</a></div>
+    <span class="nav-tool-items">
+    <button mat-button [matMenuTriggerFor]="menu">Settings</button>
+    <mat-menu #menu="matMenu">
+    <button mat-menu-item><a mat-button routerLink="/register">Create</a> </button>
+  <button mat-menu-item><a mat-button (click)="deleteuser()" >Delete profile</a></button>
+  <button mat-menu-item><a mat-button (click)="logout()">Logout</a></button>
+</mat-menu>
+</span>
+</mat-toolbar> 
+<mat-drawer-container class="example-container">
+    <mat-drawer mode="side" opened>
+        <mat-card-subtitle>
+            <p>Profile Summary</p>
+                <div>
+                    <table *ngIf="profile">
+                        <tr>
+                            <th colspan="2"><img src="https://2.bp.blogspot.com/-xG8wtGFhwd4/WjFWoJpjSPI/AAAAAAAAns0/-UCndX6XnlEsTYS-LeZyXa2_DsgQQlkQgCLcBGAs/s400/mark.png" style="width: 100px; height: 100px;"/></th>
+                        </tr>
+                        <tr>
+                            <th>AdminId: </th>
+                            <td>{{profile[0]._id}}</td>
+                        </tr>
+                        <tr>
+                            <th>AdminName: </th>
+                            <td>{{profile[0].username}}</td>
+                        </tr>
+                    </table>
+                </div>
+            </mat-card-subtitle>
+    </mat-drawer>
+    <mat-drawer-content style="margin-left: 300px; margin-top: 2em;width: fit-content;">
+        <router-outlet></router-outlet></mat-drawer-content>
+</mat-drawer-container>
+<mat-toolbar class="app-header" style="margin-top:660px;">
+    <span style="margin-left: 50%;" >Made By Brane105</span>
+</mat-toolbar>

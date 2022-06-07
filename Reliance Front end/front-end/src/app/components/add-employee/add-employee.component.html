@@ -1,0 +1,30 @@
+<mat-card class="box" class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
+    <mat-card-header>
+      <mat-card-title>Add Employees</mat-card-title>
+    </mat-card-header>
+      <hr>
+      <form (ngSubmit) = "addEmp(EmpForm.value)" #EmpForm = "ngForm">
+        <div class = "form-group">
+          <mat-form-field appearance="fill">
+            <mat-label>Empname</mat-label>
+            <input type = "text" name = "empname" [(ngModel)] = "empname" matInput placeholder="Enter Name" required>
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Department</mat-label>
+            <input type = "string" name = "dept" [(ngModel)] = "dept" matInput placeholder="Dept" required>   
+          </mat-form-field><br>
+          <mat-form-field appearance="fill">
+            <mat-label>Email</mat-label>
+            <input type = "email" name = "email" [(ngModel)] = "email" matInput placeholder="email" required>   
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Level</mat-label>
+            <input type = "string" name = "level" [(ngModel)] = "level" matInput placeholder="level" required>   
+          </mat-form-field>
+            <mat-card-content>
+                <button mat-raised-button color="accent" class="btn-block" onClick="window.location.reload();">Save</button>
+            </mat-card-content>    
+            </div>
+      </form>
+</mat-card>
+<app-get-employee></app-get-employee>
