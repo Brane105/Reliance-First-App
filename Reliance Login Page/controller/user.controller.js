@@ -33,12 +33,14 @@ let getUser = async (req, res) => {
   };
 let getprofile = (req, res) => { 
   let username = req.params.username;
+  //get profile using username 
   User.find({ username:username}, (err, result) => {
     if (!err) {
       res.json(result);
     }
   });
 };
+//get all the users
 let getusers = (req, res) => { 
   User.find({}, (err, result) => {
     if (!err) {
@@ -47,7 +49,8 @@ let getusers = (req, res) => {
   });
 };
 let deleteUser = (req, res) => {
-  let username = req.params.username; //passing the username through path param
+  let username = req.params.username; 
+  //passing the username through path param
   User.deleteOne({ username: username },(err, result) => {
     if (!err) {
       if (result.deletedCount > 0) {
