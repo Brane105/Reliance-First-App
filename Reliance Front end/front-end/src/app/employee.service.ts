@@ -8,7 +8,7 @@ import { Employee } from './models/employee';
 export class EmployeeService {
   baseURL = "http://localhost:8080/emp"
   constructor(public _http:HttpClient) { }
-  //register emps
+    //register emps
     public storeemp(emps:any):Observable<Employee[]>{
       return this._http.post<Employee[]>(this.baseURL+'/store',emps)
     }
@@ -16,16 +16,19 @@ export class EmployeeService {
     public getemps():Observable<Employee[]>{
       return this._http.get<Employee[]>(this.baseURL+'/getEmployees')
     }
+    //get employee by name
     public getempbyname(name:any):Observable<Employee[]>{
       return this._http.get<Employee[]>(`${this.baseURL}/getEmployeeById/${name}`)
     }
+     //delete employee by name
     public DeletebyId(id:any):Observable<Employee[]>{
       return this._http.delete<Employee[]>(`${this.baseURL}/deleteEmpById/${id}`)
     }
-    updateEmp(editRef: any): void {
+     //update employee by name
+    public  updateEmp(editRef: any): void {
       console.log('updateinSVCfileReached');
       this._http
-        .put('http://localhost:8080/emp/editEmployee', editRef, {
+        .put(`${this.baseURL}/editEmployee`, editRef, {
           responseType: 'text',
         })
         .subscribe(

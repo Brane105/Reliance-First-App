@@ -3,7 +3,6 @@ import { Employee } from 'src/app/models/employee';
 import {MatTableDataSource} from "@angular/material/table";
 import { EmployeeService } from 'src/app/employee.service';
 import { ActivatedRoute,Params } from '@angular/router';
-import { FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 @Component({
   selector: 'app-get-employee',
@@ -23,7 +22,7 @@ export class GetEmployeeComponent implements OnInit {
     this.getemps();
   }
 /**
-   * This method returns students details
+   * This method returns employees details
    */
  getemps(){
   this._service.getemps()
@@ -44,7 +43,7 @@ deleteEmp(id:any) {
 getContactByName(name:any){
   this.dataSource.filter = name.trim()
 }
-// getContactByName(name:any){
+// getemByName(name:any){
 //   if(name.trim().length > 0){
 //     this._service.getempbyname(name).subscribe(
 //       success => {
